@@ -1,0 +1,105 @@
+.content{
+    display: grid;
+    /* Criando as colunas da aplicação (Divisão img x conteúdo) */
+    grid-template-columns: 60% 40%;
+    /* Criando a linha de separação img x topo e img x end */ 
+    /* fr significa fração, basicamente é dividir em blocos. 1fr é 100% pois é 1 bloco do que sobrar*/
+    grid-template-rows: 11.4rem 1fr;
+
+    grid-template-areas: 
+    'header header'
+    'left right'
+}
+
+header{
+    grid-area: header;
+
+}
+
+/* Setando a imagem no grid da esquerda */
+#bg{
+    grid-area: left;
+    /* No-repeat = Não repetir as imagens | top/contain = colocar a imagem no topo do grid, tamanho completo e dentro do espaço da grid */
+    background: url('../images/home-bg-img.svg') no-repeat top/contain;
+    background-position-x: -4rem;
+}
+/* Se for mudar a posição de uma imagem, usar o background-position, pois o margin-left desloca a própria div */
+
+main{
+    grid-area: right;
+
+    display: flex;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+main .container{
+    width: min(36.3rem, 100%);
+}
+
+main h2{
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+    font-size: clamp(20px,5vw,2.8rem);
+    margin-bottom: 2.4rem;
+}
+
+input{
+    border: 0.2rem solid var(--grey-blue) ;
+    padding: 0 1.6rem;
+    outline: none;
+}
+
+input,button,.button{
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+/* Separator Line */
+
+/* Display flex naturalmente já deixa uma coisa ao lado da outra */
+.separator{
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.separator div:nth-child(2){
+    color: var(--grey-blue);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 0 1.35rem;
+    line-height: 0;
+}
+
+/* :nth-child() é uma propriedade que a gente pode falar qual filho de uma div a gente quer usar */
+.separator div:nth-child(1),
+.separator div:nth-child(3){
+    background: var(--grey-blue);
+    width: 100%;
+    height: 1px;
+}
+
+/* Create Balls */
+.ball{
+    background: var(--blue);
+  /*Position fixed, fica na frente e por cima de tudo */
+    position: fixed;
+    width: 21.2rem; 
+    height:21.2rem;
+    clip-path: circle();
+    opacity: .1;
+
+}
+
+.ball.top{
+    top: -46rem;
+    width: 63.3rem;
+    right: -35rem;
+    height: 63.3rem;
+}
+
+.ball.bottom{
+    bottom: -15rem;
+    right: 1rem;
+}
